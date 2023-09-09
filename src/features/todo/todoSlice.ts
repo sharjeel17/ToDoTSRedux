@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice, nanoid } from "@reduxjs/toolkit";
 
 //todo interface which is used in reducer
 //and then added to todos array in todoState
@@ -39,7 +39,7 @@ export const todoSlice = createSlice({
         },
 
         //remove todo reducer function
-        removeTodo: (state, action) => {
+        removeTodo: (state, action: PayloadAction<string>) => {
             //filter by only keeping the todos that do not match id given in payload
             state.todos = state.todos.filter((currentTodo) => {
                 currentTodo.id !== action.payload
